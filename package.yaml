@@ -1,0 +1,35 @@
+name:                pokeapihs
+version:             0.1.0.0
+github:              "m-doughty/pokeapihs"
+synopsis:            PokeAPI (<https://pokeapi.co>) wrapper written in Haskell.
+description:         See README at <https://github.com/m-doughty/pokeapihs#readme>
+category:            Web, Game
+license:             BSD3
+author:              "Matt Doughty"
+maintainer:          "m.doughty@hushmail.com"
+copyright:           "2020 Matt Doughty"
+
+extra-source-files:
+- README.md
+
+ghc-options: -Wall -O2
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- cache
+- http-client
+- http-client-tls
+
+library:
+  source-dirs: src
+
+tests:
+  spec:
+    main: Spec.hs
+    source-dirs:
+      - test
+      - src
+    dependencies:
+      - hspec == 2.*
+    build-tools: hspec-discover

@@ -1,0 +1,62 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           pokeapihs
+version:        0.1.0.0
+synopsis:       PokeAPI (<https://pokeapi.co>) wrapper written in Haskell.
+description:    See README at <https://github.com/m-doughty/pokeapihs#readme>
+category:       Web, Game
+homepage:       https://github.com/m-doughty/pokeapihs#readme
+bug-reports:    https://github.com/m-doughty/pokeapihs/issues
+author:         Matt Doughty
+maintainer:     m.doughty@hushmail.com
+copyright:      2020 Matt Doughty
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/m-doughty/pokeapihs
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_pokeapihs
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -O2
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , cache
+    , http-client
+    , http-client-tls
+  default-language: Haskell2010
+
+test-suite spec
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Lib
+      Paths_pokeapihs
+  hs-source-dirs:
+      test
+      src
+  ghc-options: -Wall -O2
+  build-tool-depends:
+      hspec-discover:hspec-discover
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , cache
+    , hspec ==2.*
+    , http-client
+    , http-client-tls
+  default-language: Haskell2010
